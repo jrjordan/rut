@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML"	
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
+
+<define>
+  <position name="origin" unit="cm" x="0" y="0" z="0"/>
+  <rotation name="identity"/>
+</define>
+
+<materials>
+  <element name="hydrogen" formula="H" Z="1">  <atom value="1.0079"/> </element>
+  <element name="nitrogen" formula="N" Z="7">  <atom value="14.0067"/> </element>
+  <element name="oxygen" formula="O" Z="8">  <atom value="15.999"/> </element>
+  <element name="carbon" formula="C" Z="6">  <atom value="12.0107"/>  </element>
+  <element name="chromium" formula="Cr" Z="24"> <atom value="51.9961"/>  </element>
+  <element name="iron" formula="Fe" Z="26"> <atom value="55.8450"/>  </element>
+  <element name="nickel" formula="Ni" Z="28"> <atom value="58.6934"/>  </element>
+  <element name="argon" formula="Ar" Z="18"> <atom value="39.9480"/>  </element>
+  
+  <material name="stainless_steel" formula="stainless_steel">
+    <D value="7.9300" unit="g/cm3"/>
+    <fraction n="0.0010" ref="carbon"/>
+    <fraction n="0.1792" ref="chromium"/>
+    <fraction n="0.7298" ref="iron"/>
+    <fraction n="0.0900" ref="nickel"/>
+  </material>
+  
+  <material formula=" " name="air">
+    <D value="0.001205" unit="g/cc"/>
+    <fraction n="0.781154" ref="nitrogen"/>
+    <fraction n="0.209476" ref="oxygen"/>
+    <fraction n="0.00937" ref="argon"/>
+  </material>
+  
+  <material formula=" " name="PPO">
+    <D value="1.06" unit="g/cc"/>
+    <fraction n="0.8142" ref="carbon"/>
+    <fraction n="0.0501" ref="hydrogen"/>
+    <fraction n="0.0633" ref="nitrogen"/>
+    <fraction n="0.0723" ref="oxygen"/>
+  </material>
+
+  <material formula=" " name="C15H24_LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.8815" ref="carbon"/>
+    <fraction n="0.1185" ref="hydrogen"/>
+  </material>
+
+  <material formula=" " name="C16H26_LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.8799" ref="carbon"/>
+    <fraction n="0.1201" ref="hydrogen"/>
+  </material>
+
+  <material formula=" " name="C17H28_LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.8785" ref="carbon"/>
+    <fraction n="0.1215" ref="hydrogen"/>
+  </material>
+
+  <material formula=" " name="C18H30_LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.8772" ref="carbon"/>
+    <fraction n="0.1228" ref="hydrogen"/>
+  </material>
+
+  <material formula=" " name="C19H32_LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.8761" ref="carbon"/>
+    <fraction n="0.1239" ref="hydrogen"/>
+  </material>
+
+  <material formula=" " name="LAB">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="0.012" ref="C15H24_LAB"/>
+    <fraction n="0.204" ref="C16H26_LAB"/>
+    <fraction n="0.432" ref="C17H28_LAB"/>
+    <fraction n="0.334" ref="C18H30_LAB"/>
+    <fraction n="0.018" ref="C19H32_LAB"/>
+  </material>
+
+  <material formula=" " name="bisMSB">
+    <D value="1.08" unit="g/cc"/>
+    <fraction n="0.929" ref="carbon"/>
+    <fraction n="0.071" ref="hydrogen"/>
+  </material>
+  
+  <material formula=" " name="scintCocktailLAB">
+    <D value="0.870" unit="g/cc"/>
+    <fraction n="0.996552" ref="LAB"/>
+    <fraction n="0.003431" ref="PPO"/>
+    <fraction n="0.000017" ref="bisMSB"/>
+  </material>
+  
+</materials>
+
+<solids>
+
+  <box name="world"
+       lunit="m"
+       x="40.0"
+       y="40.0"
+       z="200.0"/>
+  <tube name="scintillatorTarget"
+	lunit="cm"
+	rmax="5"
+	z="200"
+	deltaphi="360"
+	aunit="deg"/>
+  <tube name="detector"
+	lunit="cm"
+ 	rmax="8"
+	z="206"
+	deltaphi="360"
+	aunit="deg"/>
+ 
+</solids>
+
+<structure>
+
+  <volume name="volTarget">
+    <materialref ref="scintCocktailLAB"/>
+    <solidref ref="scintillatorTarget"/>
+  </volume>
+
+  <volume name="volDetector">
+    <materialref ref="stainless_steel"/>
+    <solidref ref="detector"/>
+    <physvol name="pvTarget">
+      <volumeref ref="volTarget"/>
+      <positionref ref="origin"/>
+    </physvol>
+  </volume>
+
+  <volume name="volWorld">
+    <materialref ref="air"/>
+    <solidref ref="world"/>
+    <physvol name="pvDetector0">
+      <volumeref ref="volDetector"/>
+      <positionref ref="origin"/>
+    </physvol>
+  </volume>
+
+</structure>
+
+<setup name="Default" version="1.0">
+  <world ref="volWorld"/>
+</setup>
+
+</gdml>
+
+

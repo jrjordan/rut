@@ -1,0 +1,30 @@
+{
+name: "OPTICS",
+index: "scintCocktailLAB",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+LIGHT_YIELDneutron: 1000.0,
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [350d, 360d, 370d, 380d, 390d, 400d, 410d, 420d, 430d, 800d],
+ABSLENGTH_value2: [1.0d-1, 2.0d-1, 2.5d-1, 3.0d-1, 1.0d, 7.0d, 2.0d2, 2.0d3, 4.0d3, 8.0d3],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [355d, 365d, 375d, 385d, 390d, 395d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 450d, 800d],
+REEMISSION_PROB_value2: [.92d, .9d, .85d, .92d, .92d, .85d, .8d, .65d, .7d, .6d, .45d, .25d, .05d, 0.0d, 0.0d],
+
+SCINTWAVEFORM_value1: [-4.6d, -18d, -156d],
+SCINTWAVEFORM_value2: [.71d, .22d, .07d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [360d, 365d, 370d, 380d, 390d, 400d, 405d, 410d, 415d, 420d, 425d, 430d, 435d, 440d, 445d, 450d, 455d, 460d, 470d, 480d, 490d, 500d, 510d, 520d, 530d, 540d, 800d, ],
+SCINTILLATION_value2: [0.0d, 0.0d, 0.0d, 0.53d, 2.64d, 13.19d, 13.98d, 13.19d, 11.87d, 14.51d, 17.15d, 15.83d, 13.19d, 10.55d, 9.23d, 8.44d, 8.18d, 7.92d, 5.28d, 3.43d, 2.64d, 1.32d, 0.79d, 0.53d, 0.26d, 0.0d, 0.0d, ],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d, ],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d, ],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "RINDEX"]
+}
