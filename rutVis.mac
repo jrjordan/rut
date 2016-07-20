@@ -14,5 +14,5 @@
 /vis/scene/add/hits
 
 /generator/add combo gun:point
-/generator/vtx/set opticalphoton  0 0 0 .0000031
+/generator/vtx/set opticalphoton 0 0 0 .0000031
 /generator/pos/set 0 0 1000

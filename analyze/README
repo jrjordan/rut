@@ -1,0 +1,5 @@
+Synatx for running the analysis
+
+./analyzeRUT <input ROOT file> <output ROOT file> <verbose flag (0 or 1)>
+
+The verbose flag turns on (1) or off (0) print messages

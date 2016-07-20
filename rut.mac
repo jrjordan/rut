@@ -21,7 +21,7 @@
 
 /generator/add combo gun:point
 #/generator/vtx/set e+ 0 0 -1 50.0
-/generator/vtx/set opticalphoton 0 0 -1 .0000031
-/generator/pos/set 0 0 990
+/generator/vtx/set opticalphoton 0 0 -1 .0000031     # 3.1 eV = 400 nm
+/generator/pos/set 0 0 990                           #Vertex position in mm
 
-/run/beamOn 10
+/run/beamOn 100
