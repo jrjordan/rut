@@ -29,6 +29,9 @@ int main( int nargs, char** argv ) {
   TFile* out = new TFile(outfile.c_str(), "RECREATE" );
 
   TH1D* wavelengthHist = new TH1D("wavelengthHist", "", 100, 200, 800);
+  TH1D* xPosHist = new TH1D("xPos", "", 200, -50, 50);
+  TH1D* yPosHist = new TH1D("yPos", "", 200, -50, 50);
+  TH1D* zPosHist = new TH1D("zPos", "", 200, -1000, 1000);
 
   int numEvents = ds->GetTotal();
   std::cout << "Number of events: " << numEvents << std::endl;
@@ -70,6 +73,9 @@ int main( int nargs, char** argv ) {
       double wavelen = hit->GetLambda() * 1.0e6;  //Convert from mm to nm
       wavelengthHist->Fill(wavelen);
       TVector3 hitPosition = hit->GetPosition();
+      xPosHist->Fill(hitPosition.X()); 
+      yPosHist->Fill(hitPosition.Y()); 
+      zPosHist->Fill(hitPosition.Z());
       TVector3 hitMomentum = hit->GetMomentum();
 
       if (verbose) {
@@ -82,6 +88,9 @@ int main( int nargs, char** argv ) {
   } 
  
   wavelengthHist->Write();
+  xPosHist->Write();
+  yPosHist->Write();
+  zPosHist->Write();
   out->Close();
 
   std::cout << "Finished." << std::endl;

@@ -24,4 +24,4 @@
 /generator/vtx/set opticalphoton 0 0 -1 .0000031     # 3.1 eV = 400 nm
 /generator/pos/set 0 0 990                           #Vertex position in mm
 
-/run/beamOn 100
+/run/beamOn 100000

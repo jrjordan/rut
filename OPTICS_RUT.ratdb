@@ -28,3 +28,37 @@ RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.4
 
 PROPERTY_LIST: ["LIGHT_YIELD", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION", "RINDEX"]
 }
+
+{
+name: "OPTICS",
+index: "simpleScint",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX"]
+}
+
+{
+name: "OPTICS",
+index: "scintWithScattering",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+
+RSLENGTH_option: "wavelength",
+RSLENGTH_value1: [200.0d, 250.0d, 300.0d, 350.0d, 400.0d, 450.0d, 500.0d, 550.0d, 600.0d, 650.0d, 700.0d, 750.0d, 800.0d],
+RSLENGTH_value2: [1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d, 1.0d], 
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "RSLENGTH"]
+}

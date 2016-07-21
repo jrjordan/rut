@@ -92,6 +92,16 @@
     <fraction n="0.003431" ref="PPO"/>
     <fraction n="0.000017" ref="bisMSB"/>
   </material>
+
+  <material formula=" " name="simpleScint">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="1.0" ref="LAB"/>
+  </material>
+
+  <material formula=" " name="scintWithScattering">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="1.0" ref="LAB"/>
+  </material>
   
 </materials>
 
@@ -120,7 +130,7 @@
 <structure>
 
   <volume name="volTarget">
-    <materialref ref="scintCocktailLAB"/>
+    <materialref ref="scintWithScattering"/>
     <solidref ref="scintillatorTarget"/>
   </volume>
 
