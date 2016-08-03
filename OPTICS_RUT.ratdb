@@ -64,6 +64,36 @@ PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "RSLENGTH"]
 }
 
 {
+name: "OPTICS",
+index: "scintWithAbsorption",
+valid_begin: [0, 0],
+valid_end: [0, 0], 
+
+LIGHT_YIELD: 1000.0,
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [300d, 800d],
+ABSLENGTH_value2: [1.0d3, 1.0d3],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [300d, 800d],
+REEMISSION_PROB_value2: [1.0d, 1.0d],
+
+SCINTWAVEFORM_value1: [-.1d],
+SCINTWAVEFORM_value2: [1.0d],
+
+SCINTILLATION_option: "dy_dwavelength",
+SCINTILLATION_value1: [300d, 500d, 800d],
+SCINTILLATION_value2: [0.0d, 1.0d, 0.0],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d],
+RINDEX_value2: [1.54d, 1.52d, 1.5d, 1.5d, 1.49d, 1.48d, 1.48d, 1.48d, 1.48d, 1.48d, 1.47d],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "ABSLENGTH", "REEMISSION_PROB", "SCINTWAVEFORM", "SCINTILLATION"]
+}
+
+{
 //Changed reflectivity to 1 to make it a perfect photon detector
 //Not totally sure why this works
 

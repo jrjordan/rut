@@ -102,6 +102,11 @@
     <D value="0.867" unit="g/cc"/>
     <fraction n="1.0" ref="LAB"/>
   </material>
+
+  <material formula=" " name="scintWithAbsorption">
+    <D value="0.867" unit="g/cc"/>
+    <fraction n="1.0" ref="LAB"/>
+  </material>
   
 </materials>
 
