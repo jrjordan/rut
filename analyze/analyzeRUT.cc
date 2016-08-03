@@ -28,9 +28,9 @@ int main( int nargs, char** argv ) {
   RAT::DSReader* ds = new RAT::DSReader( inputfile.c_str() );
   TFile* out = new TFile(outfile.c_str(), "RECREATE" );
 
-  TH1D* wavelengthHist = new TH1D("wavelengthHist", "", 100, 200, 800);
-  TH1D* xPosHist = new TH1D("xPos", "", 200, -50, 50);
-  TH1D* yPosHist = new TH1D("yPos", "", 200, -50, 50);
+  TH1D* wavelengthHist = new TH1D("wavelengthHist", "", 100, 200, 1000);
+  TH1D* xPosHist = new TH1D("xPos", "", 200, -55, 55);
+  TH1D* yPosHist = new TH1D("yPos", "", 200, -55, 55);
   TH1D* zPosHist = new TH1D("zPos", "", 200, -1100, 1100);
 
   int numEvents = ds->GetTotal();
@@ -86,7 +86,11 @@ int main( int nargs, char** argv ) {
     }
     if (verbose) std::cout << "========================================\n" << std::endl;
   } 
- 
+
+  wavelengthHist->GetXaxis()->SetTitle("Wavelength (nm)");
+  xPosHist->GetXaxis()->SetTitle("x position (mm)");
+  yPosHist->GetXaxis()->SetTitle("y position (mm)");
+  zPosHist->GetXaxis()->SetTitle("z position (mm)");
   wavelengthHist->Write();
   xPosHist->Write();
   yPosHist->Write();
