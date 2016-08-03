@@ -83,8 +83,8 @@ SCINTWAVEFORM_value1: [-.1d],
 SCINTWAVEFORM_value2: [1.0d],
 
 SCINTILLATION_option: "dy_dwavelength",
-SCINTILLATION_value1: [300d, 500d, 800d],
-SCINTILLATION_value2: [0.0d, 1.0d, 0.0],
+SCINTILLATION_value1: [300d, 499d, 500d, 501d, 800d],
+SCINTILLATION_value2: [0.0d, 0.0d, 1.0d, 0.0, 0.0d],
 
 RINDEX_option: "wavelength",
 RINDEX_value1: [300d, 350d, 400d, 450d, 500d, 550d, 600d, 650d, 700d, 750d, 800d],
