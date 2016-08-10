@@ -135,7 +135,8 @@
 <structure>
 
   <volume name="volTarget">
-    <materialref ref="scintWithAbsorption"/>
+    <materialref ref="scintWithAbsorption"/> 
+<!--    <materialref ref="scintWithScattering"/> -->
     <solidref ref="scintillatorTarget"/>
   </volume>
 

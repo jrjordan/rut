@@ -4,6 +4,7 @@
 #include "TFile.h"
 #include "TCanvas.h"
 #include "TH1D.h"
+#include "TH2D.h"
 #include "TVector3.h"
 
 #include "RAT/DSReader.hh"
@@ -32,6 +33,9 @@ int main( int nargs, char** argv ) {
   TH1D* xPosHist = new TH1D("xPos", "", 200, -55, 55);
   TH1D* yPosHist = new TH1D("yPos", "", 200, -55, 55);
   TH1D* zPosHist = new TH1D("zPos", "", 200, -1100, 1100);
+  TH2D* xyHitMap = new TH2D("xyHitMap", "", 200, -55, 55, 200, -55, 55);
+  TH2D* xzHitMap = new TH2D("xzHitMap", "", 200, -55, 55, 200, -1100, 1100);
+  TH2D* yzHitMap = new TH2D("yzHitMap", "", 200, -55, 55, 200, -1100, 1100);
 
   int numEvents = ds->GetTotal();
   std::cout << "Number of events: " << numEvents << std::endl;
@@ -76,6 +80,9 @@ int main( int nargs, char** argv ) {
       xPosHist->Fill(hitPosition.X()); 
       yPosHist->Fill(hitPosition.Y()); 
       zPosHist->Fill(hitPosition.Z());
+      xyHitMap->Fill(hitPosition.X(), hitPosition.Y());
+      xzHitMap->Fill(hitPosition.X(), hitPosition.Z());
+      yzHitMap->Fill(hitPosition.Y(), hitPosition.Z());
       TVector3 hitMomentum = hit->GetMomentum();
 
       if (verbose) {
@@ -95,6 +102,9 @@ int main( int nargs, char** argv ) {
   xPosHist->Write();
   yPosHist->Write();
   zPosHist->Write();
+  xyHitMap->Write();
+  xzHitMap->Write();
+  yzHitMap->Write();
   out->Close();
 
   std::cout << "Finished." << std::endl;
